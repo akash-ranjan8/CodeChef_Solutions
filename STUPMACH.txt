@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	long long int t,n,a,sum,m;
+	scanf("%lld",&t);
+	while(t--)
+	{
+	    scanf("%lld",&n);
+	    scanf("%lld",&a);
+	    m=a;
+	    sum=a;
+	    n--;
+	    while(n--)
+	    {
+	        scanf("%lld",&a);
+	        if(a<m)
+	        m=a;
+	        sum=sum+m;
+	    }
+	    printf("%lld\n",sum);
+	}
+	return 0;
+}
+

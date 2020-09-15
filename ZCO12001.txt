@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	long long int n;
+	int i;
+	int temp=0,a=0,a_max=0,a_max_pos=0,a_max_len=0,a_max_len_pos=0,c=0;
+	scanf("%lld",&n);
+    for(int i=1;i<=n+1;++i)
+    {
+        scanf("%d",&temp);
+        if(temp==1)
+        {
+            ++a;
+            if(a_max<a)
+            {
+                a_max=a;
+                a_max_pos=i;
+            }
+            
+        }
+        else if(temp==2)
+        {
+            --a;
+        }
+        if(a>0)
+        {
+            c++;
+            if(a_max_len<c)
+            {
+                a_max_len=c;
+                a_max_len_pos=i-c;
+            }
+        }
+        else if(a==0)
+        {
+            c=0;
+        }
+    }
+    printf("%d %d %d %d\n",a_max,a_max_pos,a_max_len+1,a_max_len_pos+1);
+	
+	return 0;
+}
+

@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+int main(){
+	long long int t,n,a,b,c,divq,i;
+	scanf("%lld",&t);
+	while(t--){
+		scanf("%lld%lld%lld",&n,&a,&b);
+		c=(a+b)%10;
+		if(c==5||c==0){
+			printf("NO\n");
+			continue;
+		}
+		divq=a+b;
+		n-=2;
+		if(c%2==1&&n!=0){
+			n--;
+			divq+=c;
+			c=(c*2)%10;
+		}
+		divq+=((n/4)*2);
+		n=n%4;
+		while(n--){
+			divq+=c;
+			c=(c*2)%10;
+		}
+		if(divq%3==0)
+			printf("YES\n");
+		else
+			printf("NO\n");
+	}
+	return 0;
+}

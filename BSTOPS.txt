@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{ int data;
+  int pos;
+  struct node *left;
+  struct node *right;
+};
+struct node *create(struct node *root,int d,int p)
+{ if(root==NULL)
+  { struct node *new=(struct node*)malloc(sizeof(struct node));
+    new->data=d;
+    new->pos=p;
+    new->left=NULL;
+    new->right=NULL;
+    printf("%d\n",new->pos);
+    return(new);
+  }
+  else if(d>root->data)
+  {
+      root->right=create(root->right,d,2*p+1);
+  }
+  else
+  {
+      root->left=create(root->left,d,2*p);
+  }
+  return(root);
+}
+struct node *delete(struct node *root,int d)
+{ static int flag;
+    if(root){ 
+    if(root->data>d)
+	root->left=delete(root->left,d);
+	else if(root->data<d)
+	root->right=delete(root->right,d);
+	else
+	{
+		struct node*t;
+		if(root->left && root->right)
+		{
+			printf("%d\n",root->pos);
+			flag=5;
+			t=root->right;
+			while(t->left)
+			t=t->left;
+			root->data=t->data;
+			root->right=delete(root->right,t->data);
+		}
+		else
+		{
+			if(flag!=5)
+			printf("%d\n",root->pos);
+			else
+			flag=3;
+			if(root->left)
+			t=root->left;
+			else
+			t=root->right;
+			free(root);
+			return(t);
+		}
+	}
+}
+return(root);
+}
+          
+int main(void) {
+	// your code goes here
+	int t,data,j;
+	char c;
+	struct node*n=NULL;
+	scanf("%d",&t);
+	for(j=0;j<2*t;j++)
+	{
+		scanf("%c %d",&c,&data);
+		if(c=='i')
+		n=create(n,data,1);
+		if(c=='d')
+		n=delete(n,data);
+	}
+	return 0;
+}
+

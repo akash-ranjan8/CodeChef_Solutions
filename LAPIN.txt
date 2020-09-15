@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include<string.h>
+int main(void) {
+	// your code goes here
+	int t,m1,m2,i,j,n,l,m;
+	char a[1000];
+	scanf("%d",&t);
+	while(t--)
+	{
+	    m1=0;
+	    m2=0;
+	    scanf("%s",a);
+	    l=strlen(a);
+	    if((l-l/2)==(l/2))
+	    {
+	        m=l/2;
+	    }
+	    else
+	    { m=(l/2)+1;
+	    }
+	    for(i='a';i<='z';++i)
+	    {
+	        for(j=0;j<l/2;++j)
+	        {
+	            if(a[j]==i)
+	            {
+	                m1++;
+	            }
+	        }
+	        for(j=m;j<l;++j)
+	        {
+	            if(a[j]==i)
+	            {
+	                m2++;
+	            }
+	        }
+	        if(m1!=m2)
+	        {
+	            j=-1;
+	            break;
+	        }
+	    }
+	    if(j==-1)
+	    {
+	        printf("NO\n");
+	    }
+	    else
+	    {
+	        printf("YES\n");
+	    }
+	}
+	return 0;
+}
+

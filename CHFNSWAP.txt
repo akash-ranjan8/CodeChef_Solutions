@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	long long int t,n;
+	scanf("%lld",&t);
+	while(t--)
+	{
+	    scanf("%lld",&n);
+	    if(n==0)
+	    {
+	        printf("0\n");
+	    }
+	    else
+	    {
+	    long long int a[n];
+	    for(int i=1;i<=n;++i)
+	    {
+	        a[i]=i;
+	    }
+	    long long int total=(n*(n+1))/2;
+	    long long int half=total/2;
+	    long long int c=1;
+	    long long int sum=0;
+	    if((total%2)!=0)
+	    {
+	        printf("0\n");
+	    }
+	    else
+	    {
+	        for(int i=n;i>=1;--i)
+	        {
+	           sum=sum+a[i];
+	           if(sum<half)
+	           {
+	               ++c;
+	           }
+	           else if(sum==half)
+	           {
+	               long long int k=a[i]-2;
+	               long long int m=n-a[i]+1;
+	               long long int sum1,sum2;
+	               sum1=k*(k+1)/2;
+	               sum2=m*(m+1)/2;
+	               c=sum1+sum2;
+	           }
+	           else
+	           {
+	               break;
+	           }
+	        }
+	        printf("%lld\n",c);
+	    }
+	    
+	}
+	}
+	
+	return 0;
+}
+

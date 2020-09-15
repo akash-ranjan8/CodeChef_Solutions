@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include<string.h>
+
+int main(void) {
+	// your code goes here
+	long long int t,c,l;
+	scanf("%lld",&t);
+	while(t--)
+	{
+	    char str[1000000];
+	    scanf("%s",str);
+	    c=0;
+	    l=0;
+	    for(int i=0;i<strlen(str);++i)
+	    {
+	        if(str[i]==62)//62='<'
+	        {
+	            c--;
+	        }
+	        else if(str[i]==60)//60='>'
+	        {
+	            c++;
+	        }
+	        if(c==0)
+	        {
+	            l=i+1;
+	        }
+	        if(c<0 || i==strlen(str)-1)
+	        {
+	            printf("%lld\n",l);
+	            break;
+	        }
+	    }
+	   
+	    
+	}
+	return 0;
+}
+

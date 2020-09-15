@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	long long int t;
+	scanf("%lld",&t);
+	while(t--)
+	{
+	    long long int n;
+	    scanf("%lld",&n);
+	    long long int z=0;
+	    while(n>0)
+	    {
+	       
+	            z=z+n/5;
+	            n=n/5;
+	        
+	    }
+	    printf("%lld\n",z);
+	    
+	}
+	return 0;
+}
+

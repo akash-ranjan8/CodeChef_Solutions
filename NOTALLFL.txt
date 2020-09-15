@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	int t,n,k,max,c;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    max=0;
+	    c=0;
+	    scanf("%d%d",&n,&k);
+	    int a[n];
+	    for(int i=0;i<n;++i)
+	    {
+	        scanf("%d",&a[i]);
+	    }
+	    for(int i=1;i<=k;++i)
+	    {
+	        c=0;
+	        for(int j=0;j<n;++j)
+	        {
+	            if(a[j]==i)
+	            {
+	                if(c>max)
+	                {
+	                    max=c;
+	                }
+	                c=0;
+	            }
+	            else
+	            {
+	                c++;
+	            }
+	        }
+	        if(c>max)
+	        {
+	            max=c;
+	        }
+	        if(max==n)
+	        {
+	            break;
+	        }
+	        
+	    }
+	    printf("%d\n",max);
+	}
+	return 0;
+}
+

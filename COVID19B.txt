@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define l1 long long int
+int main()
+{ 
+  
+  l1 t;
+  cin>>t;
+  while(t--)
+  {
+      l1 n,i,low=0,high=0;
+      cin>>n;
+      vector<l1> arr(n);
+      vector<l1> temp(n);
+      for(i=0;i<n;++i)
+      {
+          cin>>arr[i];
+      }
+      for(i=0;i<n;++i)
+      {
+          l1 l,r,x=0,y=0;
+          for(l=i;l>=0;l--)
+          {
+              if(arr[l]>arr[i])
+              {
+                  x++;
+              }
+          }
+          for(r=i;r<n;++r)
+          {
+              if(arr[r]<arr[i])
+              {
+                  y++;
+              }
+          }
+          temp[i]=x+y;
+      }
+      l1 min=temp[0];
+      l1 max=temp[0];
+      for(i=0;i<n;++i)
+      {
+          if(temp[i]<min)
+          {
+              min=temp[i];
+          }
+          if(temp[i]>max)
+          {
+              max=temp[i];
+          }
+      }
+      min=min+1;
+      max=max+1;
+      cout<<min<<" "<<max<<"\n";
+  }
+  return 0;
+}

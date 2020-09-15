@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include<math.h>
+int gcd(int x,int y)
+{
+    if(x==0||y==0)
+        return(0);
+    else if(x>y)
+    {
+        x=gcd(x-y,y);
+        return(x);
+    }
+    else if(y>x)
+    {
+       y=gcd(x,y-x);
+        return(y);
+    }
+    return(y);
+}
+
+int main(void) {
+	// your code goes here
+	int t,n,a,k,x,y,res;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    scanf("%d%d%d",&n,&a,&k);
+	    x=((n-2)*360-2*n*a)*(k-1)+a*(n*(n-1));
+	    y=n*(n-1);
+	    res=gcd(x,y);
+	    printf("%d %d\n",x/res,y/res);
+	}
+	return 0;
+}

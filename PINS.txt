@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{  int t;
+   scanf("%d",&t);
+   while(t--)
+   {
+       long long int i,n,p;
+       
+       scanf("%lld",&n);
+       p = n/2;
+       char arr[p+2];
+       arr[0]='1';
+
+       for(i=1;i<=n/2;i++)
+          arr[i]='0';
+          arr[i]='\0';
+            
+       printf("1 %s\n",arr);
+   }
+	
+	return 0;
+}
+
+
+

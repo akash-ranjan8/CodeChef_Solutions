@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include<string.h>
+#include<ctype.h>
+#include<math.h>
+int main(void) {
+	// your code goes here
+	int t,n;
+	scanf("%d",&t);
+	long s1,s2,a[10000];
+	while(t--)
+	{ scanf("%d",&n);
+	  int a[n];
+	  for(int i=0;i<n;++i)
+	  { scanf("%ld",&a[i]);
+	  }
+	  for(int i=0;i<n-1;++i)
+	  { for(int j=i+1;j<n;++j)
+	    { if(a[i]<a[j])
+	      { long t=a[i];
+	        a[i]=a[j];
+	        a[j]=t;
+	      }
+	    }
+	  }
+	   s1=0;
+	   s2=0;
+	  for(int i=0;i<n;++i)
+	  { if(i<3)
+	    { if(i==0)
+	      { s1=s1+a[i];
+	      }
+	      else
+	      { s2=s2+a[i];
+	      }
+	    }
+	    else
+	    { if(i%2==1)
+	      { s1=s1+a[i];
+	      }
+	      else
+	      { s2=s2+a[i];
+	      }
+	    }
+	  }
+	  if(s1==s2)
+	  { printf("draw\n");
+	  }
+	  else if(s1>s2)
+	  { printf("first\n");
+	  }
+	  else
+	  { printf("second\n");
+	  }
+	}
+	 
+	return 0;
+}
+
