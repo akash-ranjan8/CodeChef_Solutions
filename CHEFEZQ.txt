@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	long long int t;
+	scanf("%lld",&t);
+	while(t--)
+    {
+        long long int n,k;
+        scanf("%lld%lld",&n,&k);
+        long long int i,c;
+        c=0;
+        long long int flag=0;
+        long long int q[n];
+        for(i=0;i<n;++i)
+        {
+            scanf("%lld",&q[i]);
+        }
+        for(i=0;i<n;++i)
+        {
+            if(q[i]>=k)
+            {
+                c++;
+                q[i+1]+=(q[i]-k);
+            }
+            if(q[i]<k)
+            {
+                break;
+            }
+        }
+        if(i==n)
+        {
+            c+=((q[n-1]-k)/k);
+        }
+        printf("%lld\n",c+1);
+    }
+	return 0;
+}
+
