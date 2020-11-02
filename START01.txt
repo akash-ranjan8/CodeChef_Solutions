@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	int m,n;
+	scanf("%d",&n);
+	m=n;
+	printf("%d",m);
+	return 0;
+}
+
