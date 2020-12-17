@@ -1,0 +1,54 @@
+#include <stdio.h>
+#define l long long int 
+int main(void) {
+	// your code goes here
+	l t;
+	scanf("%lld",&t);
+	while(t--)
+	{
+	    l d,n,i,j;
+	    l k,c,m,b;
+	    k=0;
+	    c=0;
+	    m=0;
+	    scanf("%lld%lld",&n,&d);
+	    l a[n];
+	    for(i=0;i<n;++i)
+	    {
+	        scanf("%lld",&a[i]);
+	    }
+	    for(j=0;j<n;++j)
+	    {
+	        if(a[j]<=9||a[j]>=80)
+	        {
+	           ++k;   
+	        }
+	        else
+	        {
+	            ++c;
+	        }
+	    }
+	    for(b=0;b<n;++b)
+	    {
+	        if(k>=1)
+	        {
+	            k=k-d;
+	            m++;
+	        }
+	        else if(c>=1)
+	        {
+	            c=c-d;
+	            m++;
+	        }
+	        if(k<=0&&c<=0)
+	        {
+	            break;
+	        }
+	    }
+	    printf("%lld\n",m);
+	    
+	}
+	
+	return 0;
+}
+
